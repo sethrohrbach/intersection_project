@@ -17,7 +17,7 @@ clear
 % [Error] = ljud_ePut(ljHandle, LJ_ioPIN_CONFIGURATION_RESET, 0, 0, 0);
 % Error_Message(Error)
 
-
+%test
 
 exit = 1; %to end the loop
 speed = 1; %initializing speed variable
