@@ -24,7 +24,7 @@ Error_Message(Error)
 Error = ljud_ePut(ljHandle, LJ_ioPIN_CONFIGURATION_RESET,0,0,0);
 Error_Message(Error)
 
-function [buttonPressed] = Crosswalk(crosswalkState, timer);
+function [buttonPressed] = Crosswalk(crosswalkState, timer, ljHandle);
     
     % Initialize pins and timers
     crossSwitchPin = 2;

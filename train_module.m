@@ -1,24 +1,4 @@
-
-
-function state_out = train_module(timer,state_in)
-
-%loads the labjack stuff
-clf % Clears the figure window
-clear global
-
-% Load LabJack UD library and initialize LabJack constants
-ljud_LoadDriver
-ljud_Constants
-
-% Open the first found LabJack U3
-[Error ljHandle] = ljud_OpenLabJack(LJ_dtU3,LJ_ctUSB,'1',1);
-Error_Message(Error) % Check for and display any errors
- 
-% Set all pin assignments to the factory default condition
-[Error] = ljud_ePut(ljHandle, LJ_ioPIN_CONFIGURATION_RESET, 0, 0, 0);
-Error_Message(Error)
-
-
+function state_out = train_module(timer,state_in,ljHandle)
     %here we're going to define which FIO we're using so we can adjust it
     %later
     SWITCH_PORT = 4;
@@ -61,7 +41,7 @@ Error_Message(Error)
         end
         
         end
-end
+    end
     
 
             
@@ -75,5 +55,25 @@ end
 
 
 
-  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end

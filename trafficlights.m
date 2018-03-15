@@ -1,4 +1,4 @@
-function state_out = trafficlights(state_in,timer)
+function state_out = trafficlights(state_in,timer,ljHandle)
 
 r1 = 1; %variables for the LEDs - lets us adjust the actual port at any time
 r2 = 2;
@@ -52,7 +52,7 @@ tic
 timer_start = toc;
 timer_start = toc;
 %for k2 = 1:1:18 %every 21 seconds and for 15 seconds
-while timer_end < timer_start + 18 %*(1/timer)
+while timer_end < (timer_start + 18) *(1/timer)
     turn = 1  %two traffic lights are red
     timer_end = toc;
 end
@@ -61,7 +61,7 @@ tic
 timer_start = toc;
 timer_end = toc;
 %for k2 = 1:1:3  %every 33 seconds and for 3 seconds
-while timer_end < timer_start + 3 %*(1/timer) 
+while timer_end < (timer_start + 3) *(1/timer) 
     turn = 2 %two traffic lights are yellow
     timer_end = toc;
 end
@@ -70,7 +70,7 @@ tic
 timer_start = toc;
 timer_end = toc;
 %for k2 = 1:1:15 %every 18 seconds and for 18 seconds
-while timer_end < timer_start + 15 %*(1/timer)   
+while timer_end < (timer_start + 15) *(1/timer)   
     turn = 3  %two traffic lights are green
     timer_end = toc;
 end
