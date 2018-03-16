@@ -16,13 +16,13 @@ clear global
 ljud_LoadDriver
 ljud_Constants
  
-% Open the first found LabJack U3
-[Error ljHandle] = ljud_OpenLabJack(LJ_dtU3,LJ_ctUSB,'1',1);
-Error_Message(Error)
- 
-% Set all pin assignments to the factory default condition
-Error = ljud_ePut(ljHandle, LJ_ioPIN_CONFIGURATION_RESET,0,0,0);
-Error_Message(Error)
+% % Open the first found LabJack U3 we dont need these on in each function
+% [Error ljHandle] = ljud_OpenLabJack(LJ_dtU3,LJ_ctUSB,'1',1);
+% Error_Message(Error)
+%  
+% % Set all pin assignments to the factory default condition
+% Error = ljud_ePut(ljHandle, LJ_ioPIN_CONFIGURATION_RESET,0,0,0);
+% Error_Message(Error)
 
 function [buttonPressed] = Crosswalk(crosswalkState, timer, ljHandle);
     
@@ -31,7 +31,7 @@ function [buttonPressed] = Crosswalk(crosswalkState, timer, ljHandle);
     DoubleWhitePin = 5;
     DoubleRedPin = 6;
     SingleWhitePin = 3;
-    SingleRedPin = 4;
+    SingleRedPin = 7;
     WhiteTime = 10*(1/timer);
     WhiteRedTime = 8*(1/timer);
     WhiteRedInterrupt = 5*(1/timer);

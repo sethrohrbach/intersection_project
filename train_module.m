@@ -1,7 +1,11 @@
 function state_out = train_module(timer,state_in,ljHandle)
+
+ljud_LoadDriver
+ljud_Constants
+
     %here we're going to define which FIO we're using so we can adjust it
     %later
-    SWITCH_PORT = 4;
+    SWITCH_PORT = 2;
     LED_RED_1 = 5;
     LED_RED_2 = 6;
     LED_RED_3 = 7;
@@ -75,5 +79,3 @@ function state_out = train_module(timer,state_in,ljHandle)
 
 
 
-
-end

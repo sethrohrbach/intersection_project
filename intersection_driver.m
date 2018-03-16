@@ -1,10 +1,9 @@
-clc
-clear
+
 
 %loads the labjack stuff
 
 clear global
-clc clear
+clc
 
 % Load LabJack UD library and initialize LabJack constants
 ljud_LoadDriver
@@ -20,6 +19,8 @@ Error_Message(Error)
 
 
 
+
+
 exit = 1; %to end the loop
 speed = 1; %initializing speed variable
 
@@ -31,6 +32,7 @@ while exit == 1 %runs till an option is selected
     if debug_state == 9
         exit = 0;
         state_mode = 0; %all modules off
+        
     elseif debug_state == 1
         exit = 0;
         state_mode = 1; %all modules on
@@ -59,8 +61,9 @@ while exit == 1 %runs till an option is selected
 end
 
     
-   %state_mode = 1; idk why this is here i dont think i need it?
-    
+   state_mode = 1; %idk why this is here i dont think i need it?
+   mod_state = state_mode;
+   
     while state_mode ~= 0 % calls on the modules as per state input.
         if state_mode == 1
             train_state = train_module(speed,mod_state,ljHandle);
