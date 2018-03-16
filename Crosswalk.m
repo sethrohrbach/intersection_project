@@ -9,13 +9,10 @@
 %      
 % -------------------------------------------------------------------------
 
-clc
-clear global
-
-% Load LabJack UD library and initialize LabJack constants
 ljud_LoadDriver
 ljud_Constants
- 
+
+
 % % Open the first found LabJack U3 we dont need these on in each function
 % [Error ljHandle] = ljud_OpenLabJack(LJ_dtU3,LJ_ctUSB,'1',1);
 % Error_Message(Error)
@@ -28,10 +25,10 @@ function [buttonPressed] = Crosswalk(crosswalkState, timer, ljHandle);
     
     % Initialize pins and timers
     crossSwitchPin = 2;
-    DoubleWhitePin = 5;
-    DoubleRedPin = 6;
-    SingleWhitePin = 3;
-    SingleRedPin = 7;
+    DoubleWhitePin = 13;
+    DoubleRedPin = 11;
+    SingleWhitePin = 14;
+    SingleRedPin = 12;
     WhiteTime = 10*(1/timer);
     WhiteRedTime = 8*(1/timer);
     WhiteRedInterrupt = 5*(1/timer);

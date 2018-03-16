@@ -18,12 +18,33 @@ Error_Message(Error)
 
 forever = 1;
 while forever == 1
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 0, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 1, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 2, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 3, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 4, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 5, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 6, 1, 0);
-     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 7, 1, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 0, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 1, 0, 0);
+%2 & 3 = switch ports
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 3, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 4, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 5, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 6, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 7, 0, 0);
+     
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 11, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 12, 1, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 13, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 14, 0, 0);
+end
+
+while forever == 2
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 0, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 1, 0, 0);
+%2 & 3 = switch ports
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 3, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 4, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 5, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 6, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 7, 0, 0);
+     
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 11, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 12, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 13, 0, 0);
+     Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, 14, 0, 0);
 end

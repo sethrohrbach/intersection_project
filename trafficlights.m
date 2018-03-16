@@ -1,7 +1,11 @@
 function state_out = trafficlights(state_in,timer,ljHandle)
 
+
 ljud_LoadDriver
 ljud_Constants
+
+
+
 
 r1 = 1; %variables for the LEDs - lets us adjust the actual port at any time
 r2 = 2;

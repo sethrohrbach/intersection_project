@@ -1,15 +1,17 @@
 function state_out = train_module(timer,state_in,ljHandle)
-
 ljud_LoadDriver
 ljud_Constants
+
+
+
 
     %here we're going to define which FIO we're using so we can adjust it
     %later
     SWITCH_PORT = 2;
-    LED_RED_1 = 5;
-    LED_RED_2 = 6;
-    LED_RED_3 = 7;
-    LED_RED_4 = 8;
+    LED_RED_1_EW_TRAFFIC = 7;
+    LED_RED_2_NS_TRAFFIC = 6;
+    LED_RED_3_EW_PEDX = 3;
+    LED_RED_4_NS_PEDX = 4;
     module_on = 0;%initializing switch variable
 
     while state_in == 1 || state_in == 2
@@ -27,15 +29,15 @@ ljud_Constants
             timer_end = toc;
             while timer_end < (1/timer)*(30) + timer_start %keeps lights on until 30 seconds have passed by comparing tic times. timer variable lets us take in debug multipliers.
                 if (timer_start - timer_end) < 1 && timer_start - timer_end > 2 %% makes the lights flash every other second
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_1, 1, 0);
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_2, 1, 0);
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_3, 1, 0);
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_4, 1, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_1_EW_TRAFFIC, 1, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_2_NS_TRAFFIC, 1, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_3_EW_PEDX, 1, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_4_NS_PEDX, 1, 0);
                 elseif (timer_start - timer_end) >= 1 && timer_start - timer_end <= 2 %i need to get a division in there to make it odd / even
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_1, 0, 0);
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_2, 0, 0);
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_3, 0, 0);
-                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_4, 0, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_1_EW_TRAFFIC, 0, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_2_NS_TRAFFIC, 0, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_3_EW_PEDX, 0, 0);
+                    Error = ljud_ePut (ljHandle, LJ_ioPUT_DIGITAL_BIT, LED_RED_4_NS_PEDX, 0, 0);
                 end
                 timer_end = toc;
                 state_out = 3; %this outputs so the other modules know they are being interrupted
